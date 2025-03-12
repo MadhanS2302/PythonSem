@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Program A: Email Validation and Sending Simulation</h2>
+    <pre>
+        <code>
+import re
+
+def smail(email, sub, message):
+    email_pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$"
+    if not re.match(email_pattern, email):
+        raise ValueError("Invalid Email Format")
+    print(f"Email sent to {email}")
+    print(f"{sub}: {message}")
+
+try:
+    email = input("Enter your mail id: ")
+    sub = input("Enter the Subject: ")
+    message = input("Enter your message: ")
+    smail(email, sub, message)
+except ValueError as e:
+    print(f"Error: {e}")
+except Exception as ex:
+    print(ex)
+        </code>
+    </pre>
+
+    <h2>Program B: List Index Handling with Exception</h2>
+    <pre>
+        <code>
+short_list = [1, 2, 3]
+
+while True:
+    value = input('Position [q to quit]? ')
+    if value == 'q':
+        break
+    try:
+        position = int(value)
+        print(short_list[position])
+    except IndexError as err:
+        print('Bad index:', position)
+    except Exception as other:
+        print('Something else broke:', other)
+        </code>
+    </pre>
+
+</body>
+</html>

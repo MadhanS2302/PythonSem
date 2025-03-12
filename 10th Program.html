@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Login System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Program A: HTML Code for Flask Login System</h2>
+    <pre>
+        <code>
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    <h2>Login Page</h2>
+    <form action="{{ url_for('login') }}" method="post">
+        <label for="">Username :</label>
+        <input type="text" name="Username" required>
+        <br><br>
+        <label for="">Password :</label>
+        <input type="password" name="Password" required>
+        <br><br>
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>
+
+<!-- error.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+</head>
+<body>
+    <h2>Error</h2>
+    <p>Invalid username or password. Please try again.</p>
+</body>
+</html>
+
+<!-- welcome.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<body>
+    <h2>Welcome</h2>
+    <p>Login successful!</p>
+</body>
+</html>
+        </code>
+    </pre>
+
+    <h2>Program B: Flask Code for Login Authentication</h2>
+    <pre>
+        <code>
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+USER_CREDENTIALS = {
+    'admin': 'admin@123',
+    'user': 'user@1234'
+}
+
+@app.route('/')
+def login_page():
+    return render_template('login.html')
+
+@app.route('/login', methods=["POST"])
+def login():
+    username = request.form.get('Username')
+    password = request.form.get('Password')
+    if username in USER_CREDENTIALS and USER_CREDENTIALS[username] == password:
+        return render_template('welcome.html')
+    else:
+        return render_template('error.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+        </code>
+    </pre>
+
+</body>
+</html>

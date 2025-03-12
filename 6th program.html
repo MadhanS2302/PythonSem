@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Program A: Employee and Salary Calculation</h2>
+    <pre>
+        <code>
+class Employee:
+    def Info():
+        empname = input("Enter your name:")
+        empid = input("Enter your ID:")
+        print("Employee name:", empname)
+        print("Employee ID:", empid)
+
+class Salary(Employee):
+    def Netsal():
+        BS = int(input("Enter your basic salary:"))
+        DA = BS * 2 // 100
+        HRA = BS * 3 // 100
+        PF = BS * 5 // 100
+        print(BS, DA, HRA, PF)
+        NS = BS + DA + HRA - PF
+        print("Net salary:", NS)
+
+class Overall(Salary):
+    def persal():
+        l = int(input("Enter number of leaves taken:"))
+        if l > 10:
+            print("Avoid taking leave.....LOP")
+        else:
+            print("No LOP")
+
+emp = Overall
+p = int(input("Enter the number of details:"))
+for i in range(1, p):
+    emp.Info()
+    emp.Netsal()
+    emp.persal()
+        </code>
+    </pre>
+
+    <h2>Program B: Shopping System with Multiple Inheritance</h2>
+    <pre>
+        <code>
+class Customer:
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+
+    def customer_info(self):
+        return f"Customer Name: {self.name}, Email: {self.email}"
+
+class Order:
+    def __init__(self, order_id, total):
+        self.order_id = order_id
+        self.total = total
+
+    def order_info(self):
+        return f"Order ID: {self.order_id}, Total: ${self.total}"
+
+class Shopping(Customer, Order):
+    def __init__(self, name, email, order_id, total, items):
+        Customer.__init__(self, name, email)
+        Order.__init__(self, order_id, total)
+        self.items = items
+
+    def shopping_info(self):
+        return f"Items Purchased: {', '.join(self.items)}"
+
+shopper = Shopping("Bob", "bob@example.com", "O1001", 120.50, ["Laptop", "Mouse"])
+shopper1 = Shopping("John", "rockJohn@example.com", "234", 1340.50, ["Mobile", "Pendrive"])
+
+print(shopper.customer_info())
+print(shopper.order_info())
+print(shopper.shopping_info())
+print(shopper1.customer_info())
+print(shopper1.order_info())
+print(shopper1.shopping_info())
+        </code>
+    </pre>
+
+</body>
+</html>

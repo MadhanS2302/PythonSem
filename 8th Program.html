@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Program A: File Writing and Reading</h2>
+    <pre>
+        <code>
+def write_to_file(filename):
+    with open(filename, "w") as file:
+        print("Enter the text to write to the file. Type 'STOP' to finish.")
+        while True:
+            line = input(">")
+            if line.strip().upper() == "STOP":
+                break
+            file.write(line + "\n")
+    print(f"Data has been written to {filename}.\n")
+
+def read_from_file(filename):
+    try:
+        with open(filename, "r") as file:
+            print(f"Contents of {filename}:")
+            content = file.read()
+            print(content)
+    except FileNotFoundError:
+        print(f"Error: The file '{filename}' does not exist.")
+
+filename = "example.txt"
+write_to_file(filename)
+read_from_file(filename)
+        </code>
+    </pre>
+
+    <h2>Program B: To-Do List with File Handling</h2>
+    <pre>
+        <code>
+def add_task(task):
+    with open("C:\\Users\\casstudent\\Desktop\\file.txt", "a") as file:
+        file.write(f"{task} \n")
+    print("Task added")
+
+def view_tasks():
+    with open("C:\\Users\\casstudent\\Desktop\\file.txt", "r") as file:
+        tasks = file.readlines()
+        if not tasks:
+            print("Not found")
+        else:
+            print("To do list")
+        for i, line in enumerate(tasks, start=1):
+            print(f"{i}. {line.strip()}")
+
+def delete_task(task_number):
+    with open("C:\\Users\\casstudent\\Desktop\\file.txt", "r") as file:
+        tasks = file.readlines()
+    if task_number < 1 or task_number > len(tasks):
+        print("Invalid task number")
+        return
+    del tasks[task_number - 1]
+    with open("C:\\Users\\casstudent\\Desktop\\file.txt", "w") as file:
+        file.writelines(tasks)
+    print(f"Task {task_number} deleted.")
+
+# Example usage
+add_task("Buy")
+add_task("Finish")
+view_tasks()
+delete_task(1)
+view_tasks()
+        </code>
+    </pre>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Program A: Guess the Number</h2>
+    <pre>
+        <code>
+guessed_number = 45
+
+print("Find the guessed number")
+x = int(input("Enter your choice: "))
+
+if x == guessed_number:
+    print("Congratulations, you've found it!")
+else:
+    while x != guessed_number:
+        if x > guessed_number:
+            print("Too high from target")
+        elif x < guessed_number:
+            print("Too low from target")
+        x = int(input("Enter your choice: "))
+    print("Congratulations, you've found it!")
+        </code>
+    </pre>
+
+    <h2>Program B: Factorial Calculation</h2>
+    <pre>
+        <code>
+def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result *= i  
+    return result
+
+number = int(input("Enter the number: "))
+fact = factorial(number)
+print(f"The factorial of {number} is {fact}")
+        </code>
+    </pre>
+
+</body>
+</html>

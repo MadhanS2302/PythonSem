@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Program A: Binary Search</h2>
+    <pre>
+        <code>
+def binary_search(arr, x):
+    start = 0
+    end = len(arr) - 1
+    while start <= end:
+        mid = (start + end) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] < x:
+            start = mid + 1
+        else:
+            end = mid - 1
+    return -1
+
+arr = [1, 3, 5, 7, 9, 11, 13, 15]
+x = int(input("Enter the number: "))
+index = binary_search(arr, x)
+
+if index != -1:
+    print(f"Number {x} found at index {index}")
+else:
+    print("Number not found")
+        </code>
+    </pre>
+
+    <h2>Program B: Calculator</h2>
+    <pre>
+        <code>
+def add(a, b):
+    return a + b
+
+def sub(a, b):
+    return a - b
+
+def mul(a, b):
+    return a * b
+
+def div(a, b):
+    return a / b
+
+def pow(a, b):
+    return a ** b
+
+while True:
+    print("Select the operation:")
+    print("1. Addition \n2. Subtraction \n3. Multiplication \n4. Division \n5. Power \n6. Exit")
+    choice = int(input("Enter the choice: "))
+    
+    if choice == 1:
+        a = int(input("Enter number of a: "))
+        b = int(input("Enter number of b: "))
+        print(a, "+", b, "=", add(a, b))
+    elif choice == 2:
+        a = int(input("Enter number of a: "))
+        b = int(input("Enter number of b: "))
+        print(a, "-", b, "=", sub(a, b))
+    elif choice == 3:
+        a = int(input("Enter number of a: "))
+        b = int(input("Enter number of b: "))
+        print(a, "*", b, "=", mul(a, b))
+    elif choice == 4:
+        a = int(input("Enter number of a: "))
+        b = int(input("Enter number of b: "))
+        print(a, "/", b, "=", div(a, b))
+    elif choice == 5:
+        a = int(input("Enter number of a: "))
+        b = int(input("Enter number of b: "))
+        print(a, "^", b, "=", pow(a, b))
+    elif choice == 6:
+        exit()
+    else:
+        print("Invalid choice")
+        </code>
+    </pre>
+
+</body>
+</html>

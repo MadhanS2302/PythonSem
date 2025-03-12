@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Program A: FizzBuzz</h2>
+    <pre>
+        <code>
+def fizzbuzz():
+    num = int(input("Enter the number"))
+    for i in range(1, num + 1):
+        if i % 3 == 0 and i % 5 == 0:
+            print("Fizzbuzz")
+        elif i % 3 == 0:
+            print("Fizz")
+        elif i % 5 == 0:
+            print("Buzz")
+        else:
+            print(i)
+
+fizzbuzz()
+        </code>
+    </pre>
+
+    <h2>Program B: Password Validation</h2>
+    <pre>
+        <code>
+import re
+p = input("ENTER YOUR PASSWORD:")
+x = True
+while x:
+    if len(p) < 6 or len(p) > 12:
+        break
+    elif not re.search("[a-z]", p):
+        break
+    elif not re.search("[0-9]", p):
+        break
+    elif not re.search("[A-Z]", p):
+        break
+    elif not re.search("[$#@]", p):
+        break
+    elif re.search("/s", p):
+        break
+    else:
+        print("Valid password")
+        x = False
+        break
+if x:
+    print("Not a valid password")
+        </code>
+    </pre>
+
+</body>
+</html>

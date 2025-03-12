@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Contact Book Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Python Program: Contact Book Example</h2>
+    <pre>
+        <code>
+contactbook = {}
+
+def addcontact(name, mobile, email, address):
+    address = tuple(address)
+    email = tuple(email)
+    contactbook[name] = {
+        'name': name,
+        'mobile': mobile,
+        'email': email,
+        'address': address,
+    }
+
+def viewcontact():
+    print("contactbook")
+    for x, y in contactbook.items():
+        print(x, y)
+
+addcontact("Madhan", '9789609971', ['Madhan@gmail.com', 'Madhan007@gmail.com'], ["Saravanampatti"])
+viewcontact()
+        </code>
+    </pre>
+
+</body>
+</html>
